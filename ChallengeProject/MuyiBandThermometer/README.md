@@ -13,7 +13,7 @@
 并且使用教师即时交流跟所有班级老师进行消息即时互通，从而把控疫情。
 
 项目小程序二维码
-![image](http://github.com/BitaminKim/AI-in-RTC_ProgrammingChallenge/ChallengeProject\MuyiBandThermometer/QR.jpg)
+![image](https://github.com/BitaminKim/AI-in-RTC_ProgrammingChallenge/raw/master/ChallengeProject/MuyiBandThermometer/QR.jpg)
 
 # 项目成员
 
