@@ -1,4 +1,4 @@
-
+const app = getApp()
 Page({
   data: {
     channelName: '1',
@@ -123,6 +123,7 @@ Page({
     this.setData({
       channelMessageArray: this.data.channelMessageArray
     })
+    console.log(this.data.channelMessageArray)
     // 控制滚动条在最下方 即显示最新消息, 清空输入框的值
     this.setData({
       bottom: 'scrollBottom',
@@ -245,6 +246,7 @@ Page({
       this.setData({
         channelMessageArray: this.data.channelMessageArray
       })
+      
     })
     //频道成员进出通知
     this.rtm.on('MemberJoined', (memberId) => {
@@ -260,9 +262,11 @@ Page({
    // 页面创建时执行
   onLoad: function() {
     // 获取全局赋值的 rtm
-    this.rtm = getApp().globalData.agoraRtm
+    console.log(app)
+    this.rtm = app.globalData.agoraRtm
     // 拿到登陆的账户名
     this.setData({
+      userInfo: app.globalData.userInfo,
       accountName: this.rtm._accountName
     })
     this.peerOffMsg()

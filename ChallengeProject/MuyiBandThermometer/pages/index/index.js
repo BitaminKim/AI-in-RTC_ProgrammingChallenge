@@ -8,6 +8,7 @@ const app = getApp()
 
 Page({
   data: {
+    openid:'',
     token: undefined,
     ident: "40A", //标识头，作为过滤体温手环的一个标识
     offset: 1, // 手和环境温度误差值
@@ -26,6 +27,7 @@ Page({
   },
   onLoad: function () {
     var _this = this;
+    this.getOpenid();
     this.rtm = new RTMClient()
     // sdk连接状态
     this.rtm.on('ConnectionStateChanged', (newState, reason) => {
@@ -55,6 +57,18 @@ Page({
       }
     })
   },
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+     name: 'getOpenid',
+     complete: res => {
+      console.log('云函数获取到的openid: ', res.result.openId)
+      var openid = res.result.openId;
+      that.setData({openid: openid })
+      console.log( app.globalData.userInfo)
+     }
+    })
+  },
   getUserInfo: function(e) {
     console.log(e)
     if (e.detail.userInfo){
@@ -68,7 +82,8 @@ Page({
         console.log('already login')
         return
       }
-      this.rtm.login(this.data.token, this.data.userInfo.nickName).then(() => {
+      var time_id = new Date().getTime();
+      this.rtm.login(this.data.token, this.data.openid).then(() => {
         console.log('login success')
         this.rtm.isLogin = true
         wx.navigateTo({

@@ -11,10 +11,10 @@
       <view wx:if="{{queryMembers}}">
         当前频道用户: {{channelMembers}}
       </view> 
-      <view wx:for="{{channelMessageArray}}" wx:key="index" wx:for-item="channelItem">
-        <view>
-          教师名称: {{channelItem.uid}} 
-          <view class="mes">
+      <view wx:for="{{channelMessageArray}}" wx:key="index" wx:for-item="channelItem"  style="padding: 10rpx;" >
+        <view style="display: flex;" >
+          <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image> <!-- {{channelItem.uid}}  -->
+          <view class="mes" >
             {{channelItem.message}}
           </view>
         </view>

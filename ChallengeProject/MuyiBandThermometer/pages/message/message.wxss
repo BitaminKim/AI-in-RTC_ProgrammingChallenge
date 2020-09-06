@@ -75,7 +75,7 @@ page {
 
 .mes {
   border-radius: 10rpx;
-  font-size: 35rpx;
+  font-size: 40rpx;
   min-height: 65rpx;
   /* display: flex;
   flex-wrap: wrap; */
@@ -86,12 +86,15 @@ page {
   word-wrap: break-word;
   background-color: white;
   padding-left: 10rpx;
+  padding-right: 20rpx;
   padding-top: 10rpx;
   margin-left: 10rpx;
 }
-
-.mesPeer {
-  
+.userinfo-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 10rpx;
+  border-radius: 50%;
 }
 
 .swiper-tab{
